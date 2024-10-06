@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 13:13:15 by dle-fur           #+#    #+#             */
-/*   Updated: 2024/10/02 12:39:28 by dle-fur          ###   ########.fr       */
+/*   Updated: 2024/10/06 15:52:48 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ char	*ft_strchr(const char *s, int c)
 	{
 		if (s[i] == (char )c)
 		{
-			return ((char *)(&s[i]));
+			return ((char *)&s[i]);
 		}
 		i++;
 	}
 	if (c == '\0')
 	{
-		return ((char *)(&s[i]));
+		return ((char *)&s[i]);
 	}
 	return (NULL);
 }

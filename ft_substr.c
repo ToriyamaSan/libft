@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 11:37:20 by dle-fur           #+#    #+#             */
-/*   Updated: 2024/10/06 15:58:17 by david            ###   ########.fr       */
+/*   Created: 2024/10/05 14:17:44 by david             #+#    #+#             */
+/*   Updated: 2024/10/06 16:29:11 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	len_dst;
-	size_t	len_src;
+	char			*new_str;
+	unsigned int	i;
+	size_t			slen;
 
+	slen = ft_strlen(s);
+	if (s == NULL)
+		return (NULL);
+	if (slen < start)
+		return (ft_strdup(""));
+	slen = slen - start;
+	if (slen < len)
+		len = slen;
+	new_str = malloc(sizeof(char) * (len + 1));
+	if (new_str == NULL)
+		return (NULL);
 	i = 0;
-	len_dst = ft_strlen(dst);
-	len_src = ft_strlen(src);
-	if (!dstsize)
+	while (s[i + start] && i < len)
 	{
-		return (len_src);
-	}
-	if (dstsize <= len_dst)
-	{
-		return (dstsize + len_src);
-	}
-	while (src[i] != '\0' && (len_dst + i) < (dstsize - 1))
-	{
-		dst[len_dst + i] = src[i];
+		new_str[i] = s[i + start];
 		i++;
 	}
-	dst[len_dst + i] = '\0';
-	return (len_dst + len_src);
+	new_str[i] = '\0';
+	return (new_str);
 }
