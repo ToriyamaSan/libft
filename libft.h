@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 11:36:19 by dle-fur           #+#    #+#             */
-/*   Updated: 2024/10/10 14:35:57 by dle-fur          ###   ########.fr       */
+/*   Updated: 2024/10/10 18:38:58 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
