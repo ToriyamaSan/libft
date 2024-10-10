@@ -7,8 +7,13 @@ ft_strrchr.c ft_strnstr.c ft_calloc.c ft_putchar_fd.c ft_putstr_fd.c \
 ft_putendl_fd.c ft_putnbr_fd.c ft_strjoin.c ft_substr.c ft_strtrim.c \
 ft_strmapi.c ft_striteri.c ft_itoa.c
 
+SRCSB = \
+ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
+ft_lstdelone.c ft_lstclear.c ft_lstiter.c
+
 NAME = libft.a
 OBJS = $(SRCS:.c=.o)
+OBJSB = $(SRCSB:.c=.o)
 
 LIBC = ar rcs
 FLAGS = -Wall -Wextra -Werror
@@ -23,10 +28,13 @@ $(NAME)	: $(OBJS)
 
 all:	$(NAME)
 
+bonus: $(NAME) $(OBJSB)
+	$(LIBC) $(NAME) $(OBJSB)
+
 clean:  
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJSB)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(bonus)
 
 re:	fclean all
