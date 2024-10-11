@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 17:18:59 by david             #+#    #+#             */
-/*   Updated: 2024/10/06 15:30:58 by david            ###   ########.fr       */
+/*   Updated: 2024/10/11 14:09:40 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ static int	ft_len(long nb)
 
 char	*ft_itoa(int n)
 {
-	int		len;
 	char	*str;
 	long	nb;
+	int		len;
 
 	len = ft_len(n);
 	nb = n;
