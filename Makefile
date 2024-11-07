@@ -11,9 +11,21 @@ SRCSB = \
 ft_lstnew.c ft_lstsize.c ft_lstlast.c ft_lstadd_front.c ft_lstadd_back.c \
 ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
+SRCS_PRINTF = \
+ft_printf/ft_print_format.c ft_printf/ft_print_ptr.c ft_printf/ft_printf.c
+
+SRCS_GNL = \
+get_next_line/get_next_line_utils.c get_next_line/get_next_line.c
+
+SRCSB_GNL = \
+get_next_line/get_next_line_utils_bonus.c get_next_line/get_next_line_bonus.c
+
 NAME = libft.a
 OBJS = $(SRCS:.c=.o)
 OBJSB = $(SRCSB:.c=.o)
+OBJS_PRINTF = $(SRCS_PRINTF:.c=.o)
+OBJS_GNL = $(SRCS_GNL:.c=.o)
+OBJSB_GNL = $(SRCSB_GNL:.c=.o)
 
 LIBC = ar rcs
 FLAGS = -Wall -Wextra -Werror
@@ -23,16 +35,16 @@ RM = rm -f
 .c.o:
 	$(CC) $(FLAGS) -c $< -o $(<:.c=.o)
 
-$(NAME)	: $(OBJS)
-	$(LIBC) $(NAME) $(OBJS)
+$(NAME)	: $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL) $(OBJSB_GNL)
+	$(LIBC) $(NAME) $(OBJS) $(OBJS_PRINTF) $(OBJS_GNL)
 
 all:	$(NAME)
 
-bonus: $(NAME) $(OBJSB)
-	$(LIBC) $(NAME) $(OBJSB)
+bonus: $(NAME) $(OBJSB) $(OBJSB_GNL)
+	$(LIBC) $(NAME) $(OBJSB) $(OBJSB_GNL)
 
 clean:  
-	$(RM) $(OBJS) $(OBJSB)
+	$(RM) $(OBJS) $(OBJSB) $(OBJS_PRINTF) $(OBJS_GNL) $(OBJSB_GNL)
 
 fclean: clean
 	$(RM) $(NAME) $(bonus)
